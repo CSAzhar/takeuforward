@@ -30,9 +30,22 @@ public class MyHashMap<K, V>{
 	private int getNodeIndex(LinkedList<Node> ll, K key) {
 		if(ll.size() == 0) return -1;
 		for(int i = 0; i< ll.size(); i++) {
-			if(ll.get(i).key == key) return i;
+			if(ll.get(i).key.equals(key)) return i;
 		}
 		return -1;
+	}
+	private int getThreshold() {
+		return (int) ((DEFAULT_LOAD_FACTOR) * buckets.length);
+	}
+	private void rehashMap() {
+		LinkedList<Node>[] oldMap = buckets;
+		n = 0;
+		initBucket(oldMap.length * 2);
+		for(LinkedList<Node> ll : oldMap) {
+			for(Node n : ll) {
+				put(n.key, n.value);
+			}
+		}
 	}
 	public MyHashMap() {
 		initBucket(DEFAULT_CAPACITY);
@@ -50,6 +63,9 @@ public class MyHashMap<K, V>{
 		}else {
 			currentBucket.add(new Node(key, value));
 			n++;
+		}
+		if(n >= buckets.length * DEFAULT_LOAD_FACTOR) {
+			rehashMap();
 		}
 		
 	}
@@ -79,11 +95,29 @@ public class MyHashMap<K, V>{
 		MyHashMap<String, Integer> map = new MyHashMap<>();
 		map.put("azhar", 100);
 		map.put("ali", 200);
+		System.out.println("Threshold value - "+ map.getThreshold());
+		System.out.println("Map size - "+ map.size());
+
+		map.put("a", 300);
 		System.out.println(map.size());
 		System.out.println(map.get("azhar"));
 		System.out.println(map.remove("azhar"));
 		System.out.println(map.get("azhar"));
 		System.out.println(map.size());
+		map.put("aggf", 250);
+		map.put("uyuy", 3330);
+		map.put("ouk", 3330);
+		map.put(new String("ddd"), 9090);
+		map.put(new String("ddd"), 9095);
+		map.put("kim", 9095);
+		map.put("jogn", 9095);
+		System.out.println(map.get("ouk"));
+		System.out.println("Threshold value - "+ map.getThreshold());
+		System.out.println("Map size - "+ map.size());
+		System.out.println(map.get("ddd"));
+		System.out.println("Threshold value - "+ map.getThreshold());
+		System.out.println("Map size - "+ map.size());
+		System.out.println("Map size - "+ map.size());
 	}
 	
 }
