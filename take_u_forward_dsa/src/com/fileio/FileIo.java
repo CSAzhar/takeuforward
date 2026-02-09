@@ -1,9 +1,9 @@
-package java.fileio;
+package com.fileio;
 
 import java.io.InputStream;
 
 public class FileIo {
 	public static void main(String[] args) {
-		InputStream inputStream = 
+//		InputStream inputStream = 
 	}
 }
