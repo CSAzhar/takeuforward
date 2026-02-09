@@ -28,7 +28,7 @@ List, Set, Map hierarchy
 
 ArrayList vs LinkedList
 
-HashMap internal working
+HashMap internal working                                ✅
 
 HashMap vs Hashtable
 
@@ -115,7 +115,7 @@ Memory leaks
 
 ClassLoader
 
-8. Equals and HashCode
+8. Equals and HashCode                                  ✅ 
 
 Very common question.
 
