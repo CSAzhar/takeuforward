@@ -6,7 +6,7 @@ interface Calculation{
 }
 public class TestInnerClass {
 	public static void main(String[] args) {
-//		Calculation myCalculate = () -> 5;
-		System.out.println(() -> 5);
+		Calculation myCalculate = () -> 5;
+		System.out.println(myCalculate.calculation());
 	}
 }
