@@ -19,4 +19,6 @@ public class LambdaExp {
 //		Math myPrint = s -> System.out.println("Hi - "+s);
 //		myPrint.print( "azhar uddin");
 	}
+	
+	
 }
